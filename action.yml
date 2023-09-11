@@ -7,6 +7,9 @@ inputs:
   openai_api_key:
     description: The OpenAI API key required to create new embeddings
     required: true
+  issue_title:
+    description: The title of the issue (used to check if this should run or not)
+    required: true
 outputs:
   pdf_html_url:
     description: "HTML URL for the uploaded file"
@@ -23,6 +26,7 @@ runs:
       run: pip install -r requirements.txt
     - name: Find similar papers
       id: similar-papers-finder
+      if: contains(issue_title, 'PRE REVIEW')
       shell: bash
       env:
         PAPERS_REPO: ${{ inputs.papers_repo }}
