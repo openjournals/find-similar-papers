@@ -23,10 +23,11 @@ runs:
         python-version: '3.9'
         cache: 'pip' # caching pip dependencies
         working-directory: ${{ github.action_path }}
-      run: pip install -r requirements.txt
+      run: |
+        pip install -r requirements.txt
     - name: Find similar papers
       id: similar-papers-finder
-      if: contains(issue_title, 'PRE REVIEW')
+      if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
       shell: bash
       env:
         PAPERS_REPO: ${{ inputs.papers_repo }}
