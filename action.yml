@@ -4,6 +4,9 @@ inputs:
   paper_path:
     description: The path to the paper PDF file
     required: true
+  openai_api_key:
+    description: The OpenAI API key required to create new embeddings
+    required: true
 outputs:
   pdf_html_url:
     description: "HTML URL for the uploaded file"
