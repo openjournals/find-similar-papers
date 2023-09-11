@@ -15,6 +15,7 @@ outputs:
     description: "HTML URL for the uploaded file"
     value: ${{ steps.uploader.outputs.pdf_html_url }}
 runs:
+  using: "composite"
   steps:
     - name: Install Python
       uses: actions/setup-python@v4
