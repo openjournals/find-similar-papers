@@ -1,0 +1,30 @@
+name: Finder
+description: "Finding similar papers"
+inputs:
+  paper_path:
+    description: The path to the paper PDF file
+    required: true
+outputs:
+  pdf_html_url:
+    description: "HTML URL for the uploaded file"
+    value: ${{ steps.uploader.outputs.pdf_html_url }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip' # caching pip dependencies
+        working-directory: ${{ github.action_path }}
+      run: pip install -r requirements.txt
+    - name: Find similar papers
+      id: similar-papers-finder
+      shell: bash
+      env:
+        PAPERS_REPO: ${{ inputs.papers_repo }}
+      run: |
+        python ${{ github.action_path }}/find-similar-papers.py
+branding:
+  icon: upload
+  color: green
