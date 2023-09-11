@@ -16,14 +16,12 @@ outputs:
     value: ${{ steps.uploader.outputs.pdf_html_url }}
 runs:
   steps:
-    - name: Install Python
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
         cache: 'pip' # caching pip dependencies
         working-directory: ${{ github.action_path }}
-      run: |
-        pip install -r requirements.txt
+    - run: pip install -r requirements.txt
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
