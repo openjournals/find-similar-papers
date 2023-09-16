@@ -1,7 +1,7 @@
 name: Finder
 description: "Finding similar papers"
 inputs:
-  paper_path:
+  pdf_path:
     description: The path to the paper PDF file
     required: true
   openai_api_key:
@@ -10,10 +10,6 @@ inputs:
   issue_title:
     description: The title of the issue (used to check if this should run or not)
     required: true
-outputs:
-  pdf_html_url:
-    description: "HTML URL for the uploaded file"
-    value: ${{ steps.uploader.outputs.pdf_html_url }}
 runs:
   using: "composite"
   steps:
