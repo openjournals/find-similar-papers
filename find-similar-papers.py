@@ -1,6 +1,7 @@
 import PyPDF2
 import io
 import json
+import sys
 
 # Find all of the JATS papers in the current directory
 def find_papers():
@@ -208,5 +209,8 @@ if __name__ == "__main__":
         print(f"{print_summary(row.paper)}")
         print(f"Similarity score: {row.similarity}")
         print("\n")
+
+    # Print out logs in GitHub Actions 
+    sys.stdout.flush()
                
 
