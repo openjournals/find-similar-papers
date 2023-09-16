@@ -21,7 +21,7 @@ runs:
         working-directory: ${{ github.action_path }}
     - name: Install dependencies
       shell: bash
-      run: pip install -r requirements.txt
+      run: pip install -r ${{ github.action_path }}/requirements.txt
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
