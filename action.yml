@@ -18,14 +18,15 @@ runs:
       with:
         python-version: '3.9'
         cache: 'pip' # caching pip dependencies
-        # working-directory: ${{ github.action_path }}
     - name: Install dependencies
       shell: bash
+      working-directory: ${{ github.action_path }}
       run: pip install -r ${{ github.action_path }}/requirements.txt
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
       shell: bash
+      working-directory: ${{ github.action_path }}
       run: |
         python ${{ github.action_path }}/find-similar-papers.py
 branding:
