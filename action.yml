@@ -18,7 +18,7 @@ runs:
       with:
         python-version: '3.9'
         cache: 'pip' # caching pip dependencies
-        working-directory: ${{ github.action_path }}
+        # working-directory: ${{ github.action_path }}
     - name: Install dependencies
       shell: bash
       run: pip install -r ${{ github.action_path }}/requirements.txt
