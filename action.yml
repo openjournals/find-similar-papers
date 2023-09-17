@@ -15,13 +15,13 @@ runs:
   steps:
     - name: Install Python
       uses: actions/setup-python@v4
-      # with:
-      #   python-version: '3.9'
-      #   cache: 'pip' # caching pip dependencies
+      with:
+        python-version: '3.9'
+        # cache: 'pip' # caching pip dependencies
     - name: Install dependencies
       shell: bash
       working-directory: ${{ github.action_path }}
-      run: pip install numpy openai pandas requests scikit-learn scipy tqdm
+      run: pip install numpy openai pandas requests scikit-learn scipy tqdm PyPDF2
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
