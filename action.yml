@@ -27,8 +27,6 @@ runs:
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
       shell: bash
       working-directory: ${{ github.action_path }}
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         python ${{ github.action_path }}/find-similar-papers.py
 branding:
