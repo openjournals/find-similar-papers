@@ -15,9 +15,9 @@ runs:
   steps:
     - name: Install Python
       uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        cache: 'pip' # caching pip dependencies
+      # with:
+      #   python-version: '3.9'
+      #   cache: 'pip' # caching pip dependencies
     - name: Install dependencies
       shell: bash
       working-directory: ${{ github.action_path }}
