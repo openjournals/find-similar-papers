@@ -22,7 +22,7 @@ runs:
     - name: Install dependencies
       shell: bash
       working-directory: ${{ github.action_path }}
-      run: pip install -r ${{ github.action_path }}/requirements.txt
+      run: pip install numpy openai pandas requests scikit-learn scipy tqdm
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
