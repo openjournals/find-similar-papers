@@ -21,7 +21,7 @@ runs:
     - name: Install dependencies
       shell: bash
       working-directory: ${{ github.action_path }}
-      run: pip install numpy openai pandas requests scikit-learn scipy tqdm PyPDF2
+      run: pip install numpy openai pandas requests scikit-learn scipy tqdm PyPDF2 matplotlib
     - name: Find similar papers
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
