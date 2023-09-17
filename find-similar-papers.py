@@ -40,7 +40,7 @@ from openai.embeddings_utils import get_embedding, cosine_similarity
 import pandas as pd
 
 # Set the API key for OpenAI
-ai.api_key = os.environ['OPENAI_API_KEY']
+ai.api_key = os.environ['INPUTS_OPENAI_API_KEY']
 
 # List the available models and print them
 models = ai.Model.list()
