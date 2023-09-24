@@ -207,14 +207,21 @@ if __name__ == "__main__":
     # Loop through the first 5 rows of the only_embeddings DataFrame
     # skipping the first row as this will be the paper itself
     # printing out the paper and similarity
-    
-    print("The top 5 most similar papers are:")
-    for index, row in only_embeddings[1:6].iterrows():
-        print(f"{print_summary(row.paper)}")
-        print(f"Similarity score: {row.similarity}")
-        print("\n")
 
-    # Print out logs in GitHub Actions 
+    # Create a list of the output strings
+    output_lines = ["The top 5 most similar papers are:"]
+
+    for index, row in only_embeddings[1:6].iterrows():
+        output_lines.append(print_summary(row.paper))
+        output_lines.append(f"Similarity score: {row.similarity}")
+        output_lines.append("\n")
+
+    # Join the output strings into a single string
+    output_str = "\n".join(output_lines)
+
+    # Echo out the string in the required GitHub Actions format
+    print(f"::set-output name=recommendations::{output_str}")
+    
+    # Flush the output
     sys.stdout.flush()
-               
 
