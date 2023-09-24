@@ -172,7 +172,7 @@ if __name__ == "__main__":
 
     # Get the GITHUB_WORKSPACE path
     github_workspace = os.environ.get('GITHUB_WORKSPACE', '')  # Use an empty string as a default if the environment variable is not set
-    embeddings_path = os.path.join(github_workspace, 'subdir', 'embeddings.csv.gz')
+    embeddings_path = os.path.join(github_workspace, 'embeddings.csv.gz')
 
     # Read the embeddings from the embeddings.csv file
     embeddings = pd.read_csv(embeddings_path, compression='gzip')
