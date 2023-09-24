@@ -214,10 +214,10 @@ if __name__ == "__main__":
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
         output_lines.append(f"Similarity score: {row.similarity}")
-        output_lines.append("\n")
+        output_lines.append("")
 
-    # Join the output strings into a single string
-    output_str = "\n".join(output_lines)
+    # Join the output strings into a single string with '\\n' as the delimiter
+    output_str = "\\n".join(output_lines)
 
     # Echo out the string in the required GitHub Actions format
     print(f"::set-output name=recommendations::{output_str}")
