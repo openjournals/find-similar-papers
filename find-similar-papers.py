@@ -208,20 +208,22 @@ if __name__ == "__main__":
     # skipping the first row as this will be the paper itself
     # printing out the paper and similarity
 
-    # Create a list of the output strings
-    output_lines = ["The top 5 most similar papers are:"]
-
+    # Construct the multi-line string
+    output_lines = ["```", "The top 5 most similar papers are:"]
+    
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
         output_lines.append(f"Similarity score: {row.similarity}")
-        output_lines.append("")
+        output_lines.append("")  # for an extra newline
+    output_lines.append("```")  # End code block
 
-    # Join the output strings into a single string with '\\n' as the delimiter
-    output_str = "\\n".join(output_lines)
+    # Join the lines with actual newline characters
+    output_content = "\n".join(output_lines)
 
-    # Echo out the string in the required GitHub Actions format
-    print(f"::set-output name=recommendations::{output_str}")
-    
-    # Flush the output
-    sys.stdout.flush()
+    # Encode newlines for GitHub Actions
+    encoded_output = output_content.replace('\n', '%0A')
+
+    # Print the encoded string in the required GitHub Actions format
+    print(f"::set-output name=recommendations::{encoded_output}")
+
 
