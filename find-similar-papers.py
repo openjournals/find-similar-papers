@@ -213,11 +213,11 @@ if __name__ == "__main__":
     
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
-        output_lines.append(f"Similarity score: {row.similarity:.3f}")
+        output_lines.append(f"Similarity score: {row.similarity:.4f}")
         output_lines.append("")  # for an extra newline
 
     output_lines.append("")
-    output_lines.append("Note to editors: If these papers look like they might be a good match, click through to the review issue for that paper and invite one or more of the authors *before* before considering asking the reviewers of these papers to review again for JOSS.")
+    output_lines.append("⚠️ **Note to editors:** If these papers look like they might be a good match, click through to the review issue for that paper and invite one or more of the authors *before* before considering asking the reviewers of these papers to review again for JOSS.")
 
     # Join the lines with actual newline characters
     output_content = "\n".join(output_lines)
