@@ -10,6 +10,10 @@ inputs:
   issue_title:
     description: The title of the issue (used to check if this should run or not)
     required: true
+outputs:
+  recommendations:
+    description: "Output message with most similar paper recommendations"
+    value: ${{ steps.similar-papers-finder.outputs.recommendations }}
 runs:
   using: "composite"
   steps:
