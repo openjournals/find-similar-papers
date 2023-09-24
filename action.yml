@@ -26,7 +26,7 @@ runs:
       id: similar-papers-finder
       if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
       shell: bash
-      working-directory: ${{ github.action_path }}
+      # working-directory: ${{ github.action_path }}
       env:
         PDF_PATH: ${{ inputs.pdf_path }}
         ISSUE_TITLE: ${{ inputs.issue_title }}
