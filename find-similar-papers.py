@@ -164,7 +164,7 @@ def print_summary(paper):
     title = extract_title(response)
 
     # Print out the summary
-    return f"[{title}]({review_url})\nReviewers: {reviewers}"
+    return f"[{title}]({review_url})\nReviewers: ```{reviewers}```"
 
     
 # Run the script
@@ -209,13 +209,12 @@ if __name__ == "__main__":
     # printing out the paper and similarity
 
     # Construct the multi-line string
-    output_lines = ["```", "The top 5 most similar papers are:"]
+    output_lines = ["Five most similar historical JOSS papers:"]
     
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
         output_lines.append(f"Similarity score: {row.similarity}")
         output_lines.append("")  # for an extra newline
-    output_lines.append("```")  # End code block
 
     # Join the lines with actual newline characters
     output_content = "\n".join(output_lines)
