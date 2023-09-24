@@ -178,7 +178,7 @@ if __name__ == "__main__":
     embeddings = pd.read_csv(embeddings_path, compression='gzip')
 
     # Set the path to the paper_path environment variable from Actions
-    incoming_paper = os.environ['pdf_path']
+    incoming_paper = os.environ['INPUT_PDF_PATH']
 
     # Create the embedding for the paper
     incoming_embedding = create_embedding(incoming_paper)
