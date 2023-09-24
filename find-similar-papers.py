@@ -209,7 +209,7 @@ if __name__ == "__main__":
     # printing out the paper and similarity
 
     # Construct the multi-line string
-    output_lines = ["Five most similar historical JOSS papers:"]
+    output_lines = ["**🎯 Five most similar historical JOSS papers:**\n"]
     
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
