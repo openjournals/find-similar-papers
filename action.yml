@@ -28,7 +28,7 @@ runs:
       run: pip install numpy openai pandas requests scikit-learn scipy tqdm PyPDF2 matplotlib plotly
     - name: Find similar papers
       id: similar-papers-finder
-      if: contains(${{ inputs.issue_title }}, 'PRE REVIEW')
+      if: ${{ startsWith(inputs.issue_title, '[PRE REVIEW]') }}
       shell: bash
       # working-directory: ${{ github.action_path }}
       env:
