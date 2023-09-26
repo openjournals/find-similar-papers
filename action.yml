@@ -7,9 +7,6 @@ inputs:
   openai_api_key:
     description: The OpenAI API key required to create new embeddings
     required: true
-  issue_title:
-    description: The title of the issue (used to check if this should run or not)
-    required: true
 outputs:
   recommendations:
     description: "Output message with most similar paper recommendations"
@@ -28,12 +25,10 @@ runs:
       run: pip install numpy openai pandas requests scikit-learn scipy tqdm PyPDF2 matplotlib plotly
     - name: Find similar papers
       id: similar-papers-finder
-      if: ${{ startsWith(inputs.issue_title, '[PRE REVIEW]') }}
       shell: bash
       # working-directory: ${{ github.action_path }}
       env:
         PDF_PATH: ${{ inputs.pdf_path }}
-        ISSUE_TITLE: ${{ inputs.issue_title }}
       run: |
         python ${{ github.action_path }}/find-similar-papers.py
 branding:
