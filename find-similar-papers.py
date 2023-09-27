@@ -136,6 +136,34 @@ def extract_title(response):
     # Return the paper title
     return response['title']
 
+def extract_author(response):
+    # Check if the response is None
+    if response is None:
+        # Return None
+        return None
+
+    # Return the paper title
+    return response['submitting_author']
+
+def extract_editor(response):
+    # Check if the response is None
+    if response is None:
+        # Return None
+        return None
+
+    # Return the paper title
+    return response['editor']
+
+def extract_editor_status(response):
+    # Check if the response is None
+    if response is None:
+        # Return None
+        return None
+
+    # Return the paper title
+    return response['editor_status']
+
+
 # Takes a string like ./joss.04738/10.21105.joss.04738.pdf
 # first returns 10.21105.joss.04738.pdf
 # then calls out to the JOSS API and returns the title
@@ -163,8 +191,17 @@ def print_summary(paper):
     # Extract the title from the response
     title = extract_title(response)
 
+    # Extract the submitting author from the response
+    author = extract_author(response)
+
+    # Extract the editor from the response
+    editor = extract_editor(response)
+
+    # Extract editor status from the response
+    editor_status = extract_editor_status(response)
+
     # Print out the summary
-    return f"[{title}]({review_url})\nReviewers: ```{reviewers}```"
+    return f"[{title}]({review_url})\nSubmitting author: ```{author}```\nHandling editor: ```{editor} ({editor_status})```\nReviewers: ```{reviewers}```"
 
     
 # Run the script
