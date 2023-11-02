@@ -254,7 +254,7 @@ if __name__ == "__main__":
         output_lines.append("")  # for an extra newline
 
     output_lines.append("")
-    output_lines.append("⚠️ **Note to editors:** If these papers look like they might be a good match, click through to the review issue for that paper and invite one or more of the authors *before* before considering asking the reviewers of these papers to review again for JOSS.")
+    output_lines.append("⚠️ **Note to editors:** If these papers look like they might be a good match, click through to the review issue for that paper and invite one or more of the authors *before* considering asking the reviewers of these papers to review again for JOSS.")
 
     # Join the lines with actual newline characters
     output_content = "\n".join(output_lines)
@@ -264,5 +264,3 @@ if __name__ == "__main__":
 
     # Print the encoded string in the required GitHub Actions format
     print(f"::set-output name=recommendations::{encoded_output}")
-
-
