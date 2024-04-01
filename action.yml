@@ -22,7 +22,7 @@ runs:
     - name: Install dependencies
       shell: bash
       working-directory: ${{ github.action_path }}
-      run: pip install numpy openai==0.27.4 pandas requests scikit-learn scipy tqdm PyPDF2 matplotlib plotly
+      run: pip install numpy openai==0.27.4 pandas requests scikit-learn scipy tqdm PyPDF2==1.26.0 matplotlib plotly
     - name: Find similar papers
       id: similar-papers-finder
       shell: bash
