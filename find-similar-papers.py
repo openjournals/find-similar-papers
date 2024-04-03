@@ -262,5 +262,5 @@ if __name__ == "__main__":
     # Encode newlines for GitHub Actions
     encoded_output = output_content.replace('\n', '%0A')
 
-    # Print the encoded string in the required GitHub Actions format
-    print(f"::set-output name=recommendations::{encoded_output}")
+    # Print the encoded string in the required GitHub Actions output format
+    print(f"'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
