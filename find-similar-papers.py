@@ -2,6 +2,7 @@ import PyPDF2
 import io
 import json
 import sys
+import os
 
 # Find all of the JATS papers in the current directory
 def find_papers():
@@ -263,4 +264,4 @@ if __name__ == "__main__":
     encoded_output = output_content.replace('\n', '%0A')
 
     # Print the encoded string in the required GitHub Actions output format
-    print(f"'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
+    os.system(f"echo 'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
