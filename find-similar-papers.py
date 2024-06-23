@@ -261,7 +261,7 @@ if __name__ == "__main__":
     output_content = "\n".join(output_lines)
 
     # Encode newlines for GitHub Actions
-    encoded_output = output_content.replace('\n', '%0A')
+    # encoded_output = output_content.replace('\n', '%0A')
 
     # Print the encoded string in the required GitHub Actions output format
     os.system(f"echo 'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
