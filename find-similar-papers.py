@@ -60,7 +60,7 @@ def create_embedding(paper):
         text = text[:8191]
 
         # Create the embedding using the text-embedding-ada-002 engine
-        embedding = ai.Embedding.create(engine = "text-embedding-ada-002", input=text)
+        embedding = ai.Embedding.create(engine = "text-embedding-3-large", input=text)
 
         # Return the embedding
         return embedding
