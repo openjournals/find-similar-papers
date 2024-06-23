@@ -267,4 +267,4 @@ if __name__ == "__main__":
     # os.system(f"echo 'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
 
     with open(os.getenv('GITHUB_OUTPUT'), 'a') as f:
-        f.write(f"recommendations={encoded_output}\n")
+        f.write(f"recommendations<<EOF\n{output_content}\nEOF\n")
