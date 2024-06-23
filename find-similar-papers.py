@@ -264,4 +264,7 @@ if __name__ == "__main__":
     encoded_output = output_content.replace('\n', '%0A')
 
     # Print the encoded string in the required GitHub Actions output format
-    os.system(f"echo 'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
+    # os.system(f"echo 'recommendations={encoded_output}' >> $GITHUB_OUTPUT")
+
+    with open(os.getenv('GITHUB_OUTPUT'), 'a') as f:
+        f.write(f"recommendations={encoded_output}\n")
