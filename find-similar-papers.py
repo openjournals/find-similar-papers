@@ -65,7 +65,7 @@ def create_embedding(paper):
         # Return the embedding
         return embedding
     
-    except PyPDF2.utils.PdfReadError as e:
+    except PyPDF2.errors.PdfReadError as e:
         print(f"Error reading PDF file {paper}: {e}")
         return None
  
