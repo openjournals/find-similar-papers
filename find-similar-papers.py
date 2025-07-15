@@ -248,6 +248,8 @@ if __name__ == "__main__":
 
     # Construct the multi-line string
     output_lines = ["**Five most similar historical JOSS papers:**\n"]
+    output_lines.append("⚠️ **Important note to authors:** Please do not directly contact the authors of these papers. If you believe these papers are relevant to your submission, please mention this in your submission or communicate with your handling editor.")
+    output_lines.append("")
     
     for index, row in only_embeddings[1:6].iterrows():
         output_lines.append(print_summary(row.paper))
